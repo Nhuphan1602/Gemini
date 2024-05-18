@@ -20,11 +20,15 @@ struct ContentView: View {
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .foregroundStyle(.indigo)
-                .padding(.top, 40)
+                .padding(.top, 20)
             ZStack {
                 ScrollView {
                     Text(response)
-                        .font(.title)
+                        .font(.title2)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding()
+                        .background(Color.indigo.opacity(0.1))
+                        .cornerRadius(10)
                 }
                 if isLoading {
                     ProgressView()
@@ -35,7 +39,7 @@ struct ContentView: View {
             
             TextField("Ask anything...", text: $userPrompt, axis: .vertical)
                 .lineLimit(5)
-                .font(.title)
+                .font(.title2)
                 .padding()
                 .background(Color.indigo.opacity(0.2), in: Capsule())
                 .disableAutocorrection(true)
